@@ -10,8 +10,8 @@ gem "pg", "~> 0.21.0"
 gem "puma", "~> 3.11.0"
 gem "rails", "~> 5.1.4"
 
-gem "archangel", github: "archangel/archangel"
-# gem "archangel", path: "../archangel"
+# gem "archangel", github: "archangel/archangel"
+gem "archangel", path: "../archangel"
 
 gem "jbuilder", ">= 2.5"
 gem "jquery-rails"
