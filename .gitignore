@@ -9,5 +9,8 @@ yarn-error.log
 /log/*
 !/log/.keep
 
+/public/uploads/*
+!/public/uploads/.keep
+
 /tmp/*
 !/tmp/.keep
