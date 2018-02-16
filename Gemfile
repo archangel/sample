@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
 git_source(:github) do |repo_name|
@@ -10,8 +12,13 @@ gem "pg", "~> 0.21.0"
 gem "puma", "~> 3.11.0"
 gem "rails", "~> 5.1.4"
 
-# gem "archangel", github: "archangel/archangel"
-gem "archangel", path: "../archangel"
+# This is used for production. In general, it's not a great idea to link to the
+# master branch. But this repo is used as an example. So we do what we want!
+gem "archangel", github: "archangel/archangel"
+
+# This is used for development and test purposes. Comment out the line above and
+# uncomment the following line.
+# gem "archangel", path: "../archangel"
 
 gem "jbuilder", ">= 2.5"
 gem "jquery-rails"
