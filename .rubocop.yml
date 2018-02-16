@@ -1,6 +1,24 @@
 inherit_from:
   - .rubocop_disabled.yml
 
+AllCops:
+  Include:
+    - '**/Gemfile'
+    - '**/Rakefile'
+  Exclude:
+    - 'bin/**/*'
+    - 'db/migrate/**/*'
+    - 'db/schema.rb'
+    - 'spec/dummy/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - '**/*.gemspec'
+    - 'config/environments/*.rb'
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
