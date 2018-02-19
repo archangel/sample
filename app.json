@@ -18,7 +18,7 @@
     "url": "https://github.com/heroku/heroku-buildpack-ruby"
   }],
   "addons": [
-    { "plan": "heroku-postgresql" }
+    { "plan": "heroku-postgresql" },
     { "plan": "sendgrid:starter" }
   ],
   "env": {
