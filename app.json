@@ -3,7 +3,7 @@
   "description": "Demo application for the Archangel.",
   "website": "http://archangel.github.io/",
   "repository": "https://github.com/archangel/sample",
-  "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Ruby_on_Rails_logo.svg",
+  "logo": "https://github.com/archangel/sample/raw/master/archangel.png",
   "keywords": [
     "archangel",
     "demo",
