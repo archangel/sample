@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/archangel/archangel.git
-  revision: fae7d0f974aa32c213be9bed6b4a93ec612c57a6
+  revision: c6ae664ea306d1fec4a238002aeab27b3a72ee86
   specs:
     archangel (0.0.1)
       acts_as_list (~> 0.9.10)
@@ -293,6 +293,9 @@ DEPENDENCIES
   sqlite3 (>= 1.3.0)
   tzinfo-data
   uglifier (>= 1.3.0)
+
+RUBY VERSION
+   ruby 2.5.0p0
 
 BUNDLED WITH
    1.16.1
