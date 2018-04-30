@@ -6,27 +6,33 @@ Demo application for the Archangel. This application can be used as a starting p
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/archangel/sample)
 
+## Requirements
+
+* Ruby 2.5.0 (See `.ruby-version`)
+* Imagemagick
+
 ## Installation
 
 ```
-bundle install
-bundle exec rails db:create
-bundle exec rails db:migrate
-bundle exec rails db:seed
+$ bin/setup
 ```
 
 ## Updating
 
-Install new migrations
-
 ```
-bundle exec rake archangel:install:migrations
+$ bin/update
 ```
 
-Run migrations
+## Environment variables
 
 ```
-bundle exec rake db:migrate
+$ cp -i .env.sample .env
+```
+
+## Seed data
+
+```
+$ rake db:seed
 ```
 
 ## Running Locally
@@ -34,5 +40,11 @@ bundle exec rake db:migrate
 Run using the Rails server
 
 ```
-rails s
+$ bin/rails server
+```
+
+or
+
+```
+$ rails s
 ```

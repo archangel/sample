@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123205361) do
+ActiveRecord::Schema.define(version: 20180430000060) do
+
   create_table "archangel_assets", force: :cascade do |t|
     t.integer "site_id", null: false
     t.string "file_name"
@@ -42,21 +41,23 @@ ActiveRecord::Schema.define(version: 20171123205361) do
 
   create_table "archangel_entries", force: :cascade do |t|
     t.integer "collection_id", null: false
-    t.integer "field_id", null: false
     t.text "value"
     t.integer "position"
+    t.datetime "available_at"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["available_at"], name: "index_archangel_entries_on_available_at"
     t.index ["collection_id"], name: "index_archangel_entries_on_collection_id"
     t.index ["deleted_at"], name: "index_archangel_entries_on_deleted_at"
-    t.index ["field_id"], name: "index_archangel_entries_on_field_id"
+    t.index ["position"], name: "index_archangel_entries_on_position"
   end
 
   create_table "archangel_fields", force: :cascade do |t|
     t.integer "collection_id", null: false
     t.string "label"
     t.string "slug"
+    t.string "value"
     t.string "classification"
     t.boolean "required"
     t.integer "position"
@@ -190,4 +191,5 @@ ActiveRecord::Schema.define(version: 20171123205361) do
     t.index ["slug"], name: "index_archangel_widgets_on_slug", unique: true
     t.index ["template_id"], name: "index_archangel_widgets_on_template_id"
   end
+
 end
