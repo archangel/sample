@@ -29,13 +29,20 @@ $ bin/update
 $ cp -i .env.sample .env
 ```
 
+## Create database
+
+```
+$ bin/rails db:create
+$ bin/rails db:migrate
+```
+
 ## Seed data
 
 ```
-$ rake db:seed
+$ bin/rails db:seed
 ```
 
-## Running Locally
+## Running
 
 Run using the Rails server
 

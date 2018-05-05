@@ -10,36 +10,35 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "pg", "~> 0.21.0"
-gem "puma", "~> 3.11.0"
-gem "rails", "~> 5.1.4"
+gem "pg", "~> 0.21"
+gem "puma", "~> 3.11"
+gem "rails", "~> 5.1"
 
-# This is used for production. In general, it's not a great idea to link to the
-# master branch. But this repo is used as an example. So we do what we want!
-gem "archangel", github: "archangel/archangel"
+# Used for production
+gem "archangel", "< 1.0"
 
-# This is used for development and test purposes. Comment out the line above and
+# This is used for development purposes. Comment out the line above and
 # uncomment the following line.
 # gem "archangel", path: "../archangel"
 
 gem "jbuilder", ">= 2.5"
 gem "jquery-rails"
 gem "sass-rails", "~> 5.0"
-gem "uglifier", ">= 1.3.0"
+gem "uglifier", ">= 1.3"
 
-# gem "bcrypt", "~> 3.1.7"
+# gem "bcrypt", "~> 3.1"
 # gem "therubyracer", platforms: :ruby
 
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development do
-  gem "listen", "~> 3.1.5"
-  gem "rubocop", "~> 0.51.0", require: false
-  gem "spring", "~> 2.0.2"
-  gem "spring-watcher-listen", "~> 2.0.1"
+  gem "listen", "~> 3.1"
+  gem "rubocop", "~> 0.51", require: false
+  gem "spring", "~> 2.0"
+  gem "spring-watcher-listen", "~> 2.0"
 end
 
 group :development, :test do
-  gem "pry-byebug", "~> 3.5.0"
-  gem "sqlite3", ">= 1.3.0", platforms: %i[ruby mswin mswin64 mingw x64_mingw]
+  gem "pry-byebug", "~> 3.5"
+  gem "sqlite3", ">= 1.3", platforms: %i[ruby mswin mswin64 mingw x64_mingw]
 end

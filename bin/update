@@ -19,10 +19,10 @@ chdir APP_ROOT do
   # Install JavaScript dependencies if using Yarn
   # system("bin/yarn")
 
-  puts "\n== Updating database =="
-  system! "bin/rails archangel:install:migrations"
-  system! "bin/rails db:migrate"
-  system! "bin/rails db:seed"
+  # puts "\n== Updating database =="
+  # system! "bin/rails archangel:install:migrations"
+  # system! "bin/rails db:migrate"
+  # system! "bin/rails db:seed"
 
   puts "\n== Running cleanup =="
   system! "bin/rails log:clear"
