@@ -1,11 +1,12 @@
 .bundle
+.byebug_history
 .env
 db/*.sqlite3
 db/*.sqlite3-journal
-node_modules
-
-.byebug_history
 yarn-error.log
+data
+node_modules
+redis.conf
 
 /log/*
 !/log/.keep
