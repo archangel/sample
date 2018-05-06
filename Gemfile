@@ -12,7 +12,7 @@ end
 
 gem "pg", "~> 0.21"
 gem "puma", "~> 3.11"
-gem "rails", "~> 5.1"
+gem "rails", "~> 5.2"
 
 # Used for production
 gem "archangel", "< 1.0"

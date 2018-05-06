@@ -291,7 +291,7 @@ DEPENDENCIES
   pg (~> 0.21)
   pry-byebug (~> 3.5)
   puma (~> 3.11)
-  rails (~> 5.1)
+  rails (~> 5.2)
   rubocop (~> 0.51)
   sass-rails (~> 5.0)
   spring (~> 2.0)
