@@ -47,7 +47,7 @@ GEM
     acts_as_tree (2.7.1)
       activerecord (>= 3.0.0)
     anyway_config (1.2.0)
-    archangel (0.0.4)
+    archangel (0.0.5)
       acts_as_list (~> 0.9)
       acts_as_tree (~> 2.7)
       anyway_config (~> 1.2)
