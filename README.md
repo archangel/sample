@@ -8,7 +8,7 @@ Demo application for the Archangel. This application can be used as a starting p
 
 ## Requirements
 
-* Ruby 2.5.0 (See `.ruby-version`)
+* Ruby 2.6.0 (See `.ruby-version`)
 * Imagemagick
 
 ## Installation

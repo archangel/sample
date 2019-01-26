@@ -2,8 +2,6 @@
 
 source "https://rubygems.org"
 
-ruby "2.5.0"
-
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
 
@@ -15,7 +13,7 @@ gem "puma", "~> 3.11"
 gem "rails", "~> 5.2"
 
 # Used for production
-gem "archangel", "< 1.0"
+gem "archangel", "~> 0.3"
 
 # This is used for development purposes. Comment out the line above and
 # uncomment the following line.

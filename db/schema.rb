@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180430000060) do
+ActiveRecord::Schema.define(version: 2019_01_26_015414) do
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "archangel_assets", force: :cascade do |t|
     t.integer "site_id", null: false
@@ -72,6 +93,16 @@ ActiveRecord::Schema.define(version: 20180430000060) do
     t.index ["slug"], name: "index_archangel_fields_on_slug"
   end
 
+  create_table "archangel_metatags", force: :cascade do |t|
+    t.string "metatagable_type"
+    t.integer "metatagable_id"
+    t.string "name"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["metatagable_id", "metatagable_type"], name: "index_archangel_metatags_on_metatagable_id_and_type"
+  end
+
   create_table "archangel_pages", force: :cascade do |t|
     t.integer "site_id", null: false
     t.integer "parent_id"
@@ -79,10 +110,8 @@ ActiveRecord::Schema.define(version: 20180430000060) do
     t.string "title"
     t.string "slug"
     t.string "path"
-    t.text "content", default: ""
+    t.text "content"
     t.boolean "homepage", default: false
-    t.string "meta_keywords"
-    t.string "meta_description"
     t.datetime "published_at"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
@@ -103,12 +132,10 @@ ActiveRecord::Schema.define(version: 20180430000060) do
     t.string "theme"
     t.string "locale", default: "en", null: false
     t.string "logo"
-    t.string "favicon"
-    t.string "meta_keywords"
-    t.string "meta_description"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "settings"
     t.index ["deleted_at"], name: "index_archangel_sites_on_deleted_at"
     t.index ["name"], name: "index_archangel_sites_on_name"
   end
@@ -129,12 +156,12 @@ ActiveRecord::Schema.define(version: 20180430000060) do
 
   create_table "archangel_users", force: :cascade do |t|
     t.integer "site_id", null: false
-    t.string "name", default: "", null: false
-    t.string "username", default: "", null: false
+    t.string "name", null: false
+    t.string "username", null: false
     t.string "role"
     t.string "avatar"
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "email", null: false
+    t.string "encrypted_password", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -161,6 +188,7 @@ ActiveRecord::Schema.define(version: 20180430000060) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "preferences"
     t.index ["confirmation_token"], name: "index_archangel_users_on_confirmation_token", unique: true
     t.index ["deleted_at"], name: "index_archangel_users_on_deleted_at"
     t.index ["email"], name: "index_archangel_users_on_email", unique: true
@@ -191,5 +219,8 @@ ActiveRecord::Schema.define(version: 20180430000060) do
     t.index ["slug"], name: "index_archangel_widgets_on_slug", unique: true
     t.index ["template_id"], name: "index_archangel_widgets_on_template_id"
   end
+
+# Could not dump table "sqlite_stat1" because of following StandardError
+#   Unknown type '' for column 'tbl'
 
 end
