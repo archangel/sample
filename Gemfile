@@ -13,7 +13,7 @@ gem "puma", "~> 3.11"
 gem "rails", "~> 5.2"
 
 # Used for production
-gem "archangel", "~> 0.3"
+gem "archangel", github: "archangel/archangel"
 
 # This is used for development purposes. Comment out the line above and
 # uncomment the following line.
@@ -21,7 +21,6 @@ gem "archangel", "~> 0.3"
 
 gem "jbuilder", ">= 2.5"
 gem "jquery-rails"
-gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3"
 
 # gem "bcrypt", "~> 3.1"

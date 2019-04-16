@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_015414) do
+ActiveRecord::Schema.define(version: 2019_04_16_174908) do
 
   create_table "archangel_assets", force: :cascade do |t|
     t.integer "site_id", null: false
@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(version: 2019_01_26_015414) do
     t.integer "template_id"
     t.string "title"
     t.string "slug"
-    t.string "path"
-    t.text "content"
+    t.string "permalink"
+    t.text "content", default: ""
     t.boolean "homepage", default: false
     t.datetime "published_at"
     t.datetime "deleted_at"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2019_01_26_015414) do
     t.index ["deleted_at"], name: "index_archangel_pages_on_deleted_at"
     t.index ["homepage"], name: "index_archangel_pages_on_homepage"
     t.index ["parent_id"], name: "index_archangel_pages_on_parent_id"
-    t.index ["path"], name: "index_archangel_pages_on_path", unique: true
+    t.index ["permalink"], name: "index_archangel_pages_on_permalink", unique: true
     t.index ["published_at"], name: "index_archangel_pages_on_published_at"
     t.index ["site_id"], name: "index_archangel_pages_on_site_id"
     t.index ["slug"], name: "index_archangel_pages_on_slug"
@@ -134,12 +134,12 @@ ActiveRecord::Schema.define(version: 2019_01_26_015414) do
 
   create_table "archangel_users", force: :cascade do |t|
     t.integer "site_id", null: false
-    t.string "name", null: false
-    t.string "username", null: false
+    t.string "name", default: "", null: false
+    t.string "username", default: "", null: false
     t.string "role"
     t.string "avatar"
-    t.string "email", null: false
-    t.string "encrypted_password", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
