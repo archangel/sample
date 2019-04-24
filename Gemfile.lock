@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/archangel/archangel.git
-  revision: f0654d0330b86e4c8f004db4361c1d715bca6cf0
+  revision: b6a4d2e6faa5cf9ebae45cdca3fb5a951067c080
   specs:
     archangel (0.3.0)
       activerecord-typedstore (~> 1.2)
@@ -161,7 +161,7 @@ GEM
     minitest (5.11.3)
     multi_json (1.13.1)
     nio4r (2.3.1)
-    nokogiri (1.10.2)
+    nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     parallel (1.14.0)

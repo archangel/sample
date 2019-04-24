@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_21_181105) do
+ActiveRecord::Schema.define(version: 2019_04_24_022761) do
 
   create_table "archangel_assets", force: :cascade do |t|
     t.integer "site_id", null: false
@@ -39,18 +39,32 @@ ActiveRecord::Schema.define(version: 2019_04_21_181105) do
     t.index ["slug"], name: "index_archangel_collections_on_slug", unique: true
   end
 
+  create_table "archangel_designs", force: :cascade do |t|
+    t.integer "site_id", null: false
+    t.integer "parent_id"
+    t.string "name"
+    t.text "content", default: ""
+    t.boolean "partial"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_archangel_designs_on_deleted_at"
+    t.index ["parent_id"], name: "index_archangel_designs_on_parent_id"
+    t.index ["site_id"], name: "index_archangel_designs_on_site_id"
+  end
+
   create_table "archangel_entries", force: :cascade do |t|
     t.integer "collection_id", null: false
     t.text "value"
     t.integer "position"
-    t.datetime "available_at"
+    t.datetime "published_at"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["available_at"], name: "index_archangel_entries_on_available_at"
     t.index ["collection_id"], name: "index_archangel_entries_on_collection_id"
     t.index ["deleted_at"], name: "index_archangel_entries_on_deleted_at"
     t.index ["position"], name: "index_archangel_entries_on_position"
+    t.index ["published_at"], name: "index_archangel_entries_on_published_at"
   end
 
   create_table "archangel_fields", force: :cascade do |t|
@@ -85,7 +99,7 @@ ActiveRecord::Schema.define(version: 2019_04_21_181105) do
   create_table "archangel_pages", force: :cascade do |t|
     t.integer "site_id", null: false
     t.integer "parent_id"
-    t.integer "template_id"
+    t.integer "design_id"
     t.string "title"
     t.string "slug"
     t.string "permalink"
@@ -96,13 +110,13 @@ ActiveRecord::Schema.define(version: 2019_04_21_181105) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["deleted_at"], name: "index_archangel_pages_on_deleted_at"
+    t.index ["design_id"], name: "index_archangel_pages_on_design_id"
     t.index ["homepage"], name: "index_archangel_pages_on_homepage"
     t.index ["parent_id"], name: "index_archangel_pages_on_parent_id"
     t.index ["permalink"], name: "index_archangel_pages_on_permalink", unique: true
     t.index ["published_at"], name: "index_archangel_pages_on_published_at"
     t.index ["site_id"], name: "index_archangel_pages_on_site_id"
     t.index ["slug"], name: "index_archangel_pages_on_slug"
-    t.index ["template_id"], name: "index_archangel_pages_on_template_id"
     t.index ["title"], name: "index_archangel_pages_on_title"
   end
 
@@ -117,20 +131,6 @@ ActiveRecord::Schema.define(version: 2019_04_21_181105) do
     t.text "settings"
     t.index ["deleted_at"], name: "index_archangel_sites_on_deleted_at"
     t.index ["name"], name: "index_archangel_sites_on_name"
-  end
-
-  create_table "archangel_templates", force: :cascade do |t|
-    t.integer "site_id", null: false
-    t.integer "parent_id"
-    t.string "name"
-    t.text "content", default: ""
-    t.boolean "partial"
-    t.datetime "deleted_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["deleted_at"], name: "index_archangel_templates_on_deleted_at"
-    t.index ["parent_id"], name: "index_archangel_templates_on_parent_id"
-    t.index ["site_id"], name: "index_archangel_templates_on_site_id"
   end
 
   create_table "archangel_users", force: :cascade do |t|
@@ -188,15 +188,15 @@ ActiveRecord::Schema.define(version: 2019_04_21_181105) do
     t.string "name"
     t.string "slug"
     t.text "content"
-    t.integer "template_id"
+    t.integer "design_id"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["deleted_at"], name: "index_archangel_widgets_on_deleted_at"
+    t.index ["design_id"], name: "index_archangel_widgets_on_design_id"
     t.index ["name"], name: "index_archangel_widgets_on_name"
     t.index ["site_id"], name: "index_archangel_widgets_on_site_id"
     t.index ["slug"], name: "index_archangel_widgets_on_slug", unique: true
-    t.index ["template_id"], name: "index_archangel_widgets_on_template_id"
   end
 
 end
