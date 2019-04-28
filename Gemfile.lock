@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/archangel/archangel.git
-  revision: b6a4d2e6faa5cf9ebae45cdca3fb5a951067c080
+  revision: 9184c70b7100c329022dd3d38d582eab467207c6
   specs:
     archangel (0.3.0)
       activerecord-typedstore (~> 1.2)
@@ -165,8 +165,8 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     parallel (1.14.0)
-    paranoia (2.4.1)
-      activerecord (>= 4.0, < 5.3)
+    paranoia (2.4.2)
+      activerecord (>= 4.0, < 6.1)
     parser (2.6.0.0)
       ast (~> 2.4.0)
     pg (0.21.0)
