@@ -1,0 +1,52 @@
+version: "3"
+services:
+  redis:
+    container_name: archangel_redis
+    image: redis:3.2
+    restart: always
+    volumes:
+      - ./tmp/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379"
+
+  postgres:
+    container_name: archangel_postgres
+    image: postgres:9.6
+    restart: always
+    ports:
+      - '5432'
+    volumes:
+      - ./tmp/db/data:/var/lib/postgresql/data
+
+  mailcatcher:
+    container_name: archangel_mailcatcher
+    image: schickling/mailcatcher
+    restart: always
+    ports:
+      - '1025:1025'
+      - '1080:1080'
+
+  app:
+    container_name: archangel_app
+    build: .
+    command: bash -c 'rm -f tmp/pids/server.pid && bin/rails server'
+    stdin_open: true
+    tty: true
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mailcatcher
+      - postgres
+      - redis
+    volumes:
+      - .:/myapp
+    environment:
+      RACK_ENV: development
+      RAILS_ENV: development
+      # BUNDLE_PATH: /gems
+      # BUNDLE_HOME: /gems
+      # GEM_HOME: /gems
+      # GEM_PATH: /gems
+    volumes:
+      - ../archangel:/srv/www/archangel/vendor/gems/archangel
+      - .:/srv/www/archangel
