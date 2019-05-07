@@ -8,7 +8,7 @@ Demo application for the Archangel. This application can be used as a starting p
 
 ## Requirements
 
-* Ruby 2.5.0 (See `.ruby-version`)
+* Ruby 2.5 (See `.ruby-version`)
 * Imagemagick
 
 ## Installation
@@ -44,14 +44,37 @@ $ bin/rails db:seed
 
 ## Running
 
-Run using the Rails server
+### Puma
+
+Run using the internal Rails server
 
 ```
 $ bin/rails server
 ```
 
-or
+Seed data
 
 ```
-$ rails s
+$ bin/rails db:seed
 ```
+
+### Docker
+
+```
+$ docker-compose build
+$ docker-compose run app rails db:setup
+$ docker-compose run app rails db:seed
+$ docker-compose run app rails db:create
+$ docker-compose run app rails db:migrate
+$ docker-compose up
+```
+
+### Seed data
+
+```
+$ docker-compose run app rails db:seed
+```
+
+### Heroku/Profile
+
+TODO

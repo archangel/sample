@@ -36,6 +36,10 @@ group :development do
 end
 
 group :development, :test do
+  gem "dotenv-rails", "~> 2.2"
   gem "pry-byebug", "~> 3.5"
   gem "sqlite3", "~> 1.3.13", platforms: %i[ruby mswin mswin64 mingw x64_mingw]
+end
+
+group :test do
 end
