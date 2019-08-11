@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/archangel/archangel.git
-  revision: f82bf3f05681a2538afd321fc219a1591a6a2ff6
+  revision: 97984ee619a3098c3e52ad72b026d447be922280
   specs:
     archangel (0.3.0)
       activerecord-typedstore (~> 1.2)
